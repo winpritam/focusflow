@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-div">
+            <div class="logo">Quiz Results</div>
+            <div class="profile-btn"></div>
+        </div>
+
+        <!-- Quiz Results Section -->
+        <div class="top-div">
+            <div class="progress-bar">
+                <div class="progress-percentage">{{ percentage }}%</div>
+            </div>
+            <div class="op-title">
+                <h1>Your Score: {{ total_score }}</h1>
+            </div>
+        </div>
+
+        <!-- Quiz Summary -->
+        <div class="result-container">
+            <div class="result-header">Summary</div>
+            <div class="result-detail">
+                <p>Total Questions: {{ total_questions }}</p>
+                <p>Correct Answers: {{ correct_answers }}</p>
+                <p>Wrong Answers: {{ wrong_answers }}</p>
+            </div>
+        </div>
+
+        <!-- Incorrect Answers Section -->
+        <div class="result-container">
+            <div class="result-header">Incorrect Answers</div>
+            <ul>
+                {% for wrong_question in wrong_questions %}
+                    <li class="wrong-answer">Q{{ wrong_question.question_number }}: {{ wrong_question.question_text }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <div class="nav-icon">🏠</div>
+            <div class="nav-icon">📊</div>
+            <div class="nav-icon">📚</div>
+        </div>
+    </div>
+</body>
+</html>

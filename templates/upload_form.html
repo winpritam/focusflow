@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" type="text/javascript" defer></script>
+    <title>Pre-Tom-Ai</title>
+</head>
+<body>
+    <div class="container">
+        <!-- ------------------------------------------------------------ -->
+                <div class="profile-div">
+                    <div class="logo">FocusFlow</div>
+                    <div class="profile-btn"></div>
+                </div>
+<h1 style="color: aliceblue;">PDF|Extractor</h1>
+    
+    {% if content %}
+    <form method="POST" action="/roadmap">
+        <label for="content">Edit contents:</label>
+        <textarea rows="4" cols="50" id="cnt" name="content">{{ content }}</textarea>
+        <button type="submit">Go to Roadmap</button>
+    </form>
+    {%else%}
+    <h2 style="color: aliceblue;">Upload a File</h2>
+    <form action="/add_course" method="POST" enctype="multipart/form-data">
+        <label for="file">Choose file to upload:</label>
+        <input type="file" name="file" id="file" required>
+        <br><br>
+        <input type="submit" value="Upload File">
+    </form>
+    {%endif%}
+    <ul class="navigation">
+        <li class="nav-icon"><i class="fa-solid fa-house"></i></li>
+        <li class="nav-icon"><i class="fa-solid fa-book-open"></i></li>
+        <li class="nav-icon"><i class="fa-solid fa-pen"></i></li>
+        <li class="nav-icon"><i class="fa-solid fa-ellipsis"></i></li>
+    </ul>
+</div>
+</body>
+</html>

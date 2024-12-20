@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    background: #000000;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    max-width: 600px; /* Ensure scaling for larger screens */
+    background: black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navigation {
+    height: 70px;
+    width: 100%;
+    background: #FFA500;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style-type: none;
+    position: fixed;
+    bottom: 0;
+}
+
+.nav-icon {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.profile-div {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFA500;
+    padding: 10px;
+}
+
+.logo {
+    font-size: 20px;
+    color: white;
+    font-weight: 1000;
+    text-align: center;
+}
+
+.profile-btn {
+    height: 50px;
+    width: 50px;
+    background: black;
+    border-radius: 50%;
+}
+
+/*---------------------------------------------*/
+.top-div {
+    width: 100%;
+    background: #000000;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.progress-bar {
+    height: 150px;
+    width: 150px;
+    border: 15px solid white;
+    border-bottom-color: #FFA500;
+    border-left-color: #FFA500;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: center;
+}
+
+.progress-percentage {
+    font-size: 36px;
+    font-weight: 1000;
+}
+
+.op-title h1 {
+    font-weight: 1000;
+    color: white;
+    font-size: 24px;
+}
+
+.progress-bar-div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-gap: 20px;
+    padding: 10px;
+}
+
+.progress-bar-div label {
+    color: white;
+}
+
+progress {
+    width: 100%;
+    height: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+    background-color: white;
+    border-radius: 20px;
+}
+
+progress::-webkit-progress-value {
+    background-color: orange;
+}
+
+progress::-moz-progress-bar {
+    background-color: orange;
+}
+
+/*---------------------------------------------*/
+.courses {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+    background: #000000;
+}
+
+.courses div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: #FFA500;
+    height: 80px;
+    width: 80px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid white;
+    flex: 0 0 auto;
+}
+
+/*---------------------------------------------*/
+.upload-div {
+    height: 100%;
+    width: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+.upload-div form {
+    background: #000000;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid white;
+    color: white;
+    padding: 20px;
+}
+
+.upload-div form input[type="file"] {
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.upload-div form input[type="submit"] {
+    height: 50px;
+    background: #FFA500;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+#cut-div {
+    color: #FFA500;
+    font-weight: 1000;
+    font-size: 30px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 768px) {
+    .progress-bar {
+        height: 200px;
+        width: 200px;
+        border-width: 20px;
+    }
+
+    .progress-percentage {
+        font-size: 48px;
+    }
+
+    .courses div {
+        height: 100px;
+        width: 100px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-bar {
+        height: 120px;
+        width: 120px;
+    }
+
+    .progress-percentage {
+        font-size: 24px;
+    }
+
+    .courses div {
+        height: 60px;
+        width: 60px;
+        font-size: 14px;
+    }
+}

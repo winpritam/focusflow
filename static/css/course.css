@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background: #000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.profile-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFA500;
+    padding: 10px 20px;
+    height: 70px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.profile-btn {
+    height: 40px;
+    width: 40px;
+    background: #000;
+    border-radius: 50%;
+}
+
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: #121212;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.courses {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.course {
+    background: #1f1f1f;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.course:hover {
+    transform: scale(1.05);
+    background: #292929;
+}
+
+.course-image {
+    height: 150px;
+    background: #333;
+}
+
+.course-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.course-desc {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0 10px 10px;
+    color: #ccc;
+}
+
+.navigation {
+    height: 70px;
+    background: #FFA500;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav-icon a {
+    color: #000;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-icon a:hover {
+    color: #333;
+}
+
+/* Ensure no overlap of navigation and main content */
+.main-content {
+    margin-bottom: 80px;
+}

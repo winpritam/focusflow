@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/course.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" type="text/javascript" defer></script>
+    <title>Courses</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <header class="profile-div">
+            <div class="logo">FocusFlow</div>
+            <div class="profile-btn"></div>
+        </header>
+
+        <!-- Courses Section -->
+        <main class="main-content">
+            <h1>Available Courses</h1>
+            <div class="courses">
+                {% for course in courses %}
+                <a href="/roadmap/p/{{ course.dir }}" class="course">
+                    <div class="course-image"></div>
+                    <div class="course-title">{{ course.title }}</div>
+                    <div class="course-desc">{{ course.description }}</div>
+                </a>
+                {% endfor %}
+            </div>
+        </main>
+
+        <!-- Navigation Bar -->
+        <!-- <nav class="navigation">
+            <ul>
+                <li class="nav-icon"><a href="/"><i class="fa-solid fa-house"></i></a></li>
+                <li class="nav-icon"><a href="/courses"><i class="fa-solid fa-book-open"></i></a></li>
+                <li class="nav-icon"><a href="#"><i class="fa-solid fa-pen"></i></a></li>
+                <li class="nav-icon"><a href="#"><i class="fa-solid fa-ellipsis"></i></a></li>
+            </ul>
+        </nav> -->
+        <ul class="navigation">
+            <li class="nav-icon"><a href="/"><i class="fa-solid fa-house"></a></i></li>
+            <li class="nav-icon"><a href="/courses"><i class="fa-solid fa-book-open"></i></a></li>
+            <li class="nav-icon"><a href="#"><i class="fa-solid fa-pen"></i></a></li>
+            <li class="nav-icon"><a href="#"><i class="fa-solid fa-ellipsis"></i></a></li>
+        </ul>
+    </div>
+</body>
+</html>

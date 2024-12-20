@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" type="text/javascript" defer></script>
+    <title>Deshboard</title>
+</head>
+<body>
+    <div class="container">
+<!-- ------------------------------------------------------------ -->
+        <div class="profile-div">
+            <div class="logo">FocusFlow</div>
+            <div class="profile-btn"></div>
+        </div>
+        <div class="top-div">
+            <div class="progress-bar">
+                <div class="progress-percentage">76%</div>
+            </div>
+            <div class="op-title">
+                <h1>Overall Progress</h1>
+            </div>
+            <div class="progress-bar-div">
+                <label for="course1">HTML</label>
+                <progress id="course1" value="40" max="100"></progress>
+                <label for="course2">CSS</label>
+                <progress id="course2" value="90" max="100"></progress>
+                <label for="course3">JAVA</label>
+                <progress id="course3" value="30" max="100"></progress>
+                <label for="course4">PYTHON</label>
+                <progress id="course4" value="50" max="100"></progress>
+                <label for="course5">PHP</label>
+                <progress id="course5" value="100" max="100"></progress>
+                <label for="course6">RUST</label>
+                <progress id="course6" value="10" max="100"></progress>
+            </div>
+        </div>
+<!-- ----------------------------------------------------------------------------------------- -->
+        <div class="courses">
+                <div id="add-courses"><i class="fa-solid fa-circle-plus"></i></div>
+                {% for course in courses %}
+                <a href="/roadmap/p/{{ course }}" class="btn btn-primary">
+                    <div class="course">
+                        {{ course[:5] }}
+                    </div>
+                </a>
+                {% endfor %}
+                
+        </div>
+<!-- ------------------------------------------------------------------------------------------------------- -->
+        <div class="upload-div" id="upload-file-div">
+            <div id="cut-div"><i class="fa-solid fa-x"></i></div>
+            <h2>Upload a File</h2>
+            <form action="/add_course" method="POST" enctype="multipart/form-data">
+                <label for="file">Choose file to upload:</label>
+                <input type="file" name="file" id="file" required>
+                <br><br>
+                <input type="submit" value="Upload File">
+            </form>
+        </div>
+<!-- ------------------------------------------------------------------------------------------------------- -->
+        <ul class="navigation">
+            <li class="nav-icon"><a href="/"><i class="fa-solid fa-house"></a></i></li>
+            <li class="nav-icon"><a href="/courses"><i class="fa-solid fa-book-open"></i></a></li>
+            <li class="nav-icon"><a href="#"><i class="fa-solid fa-pen"></i></a></li>
+            <li class="nav-icon"><a href="#"><i class="fa-solid fa-ellipsis"></i></a></li>
+        </ul>
+    </div>
+<!-- -============================================================================================ -->
+</body>
+</html>

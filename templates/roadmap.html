@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ roadmap.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #2c3e50;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            
+
+        /* height: 100vh;
+        width: 100%;
+        max-width: 600px;  */
+        /* Ensure scaling for larger screens */
+        /* background: black; */
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+        h3 {
+            text-align: center;
+            color: #3498db;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .section h2 {
+            color: #2980b9;
+            margin-bottom: 10px;
+        }
+
+        .topic {
+            margin-left: 20px;
+        }
+
+        .topic h4 {
+            color: #16a085;
+            margin-bottom: 5px;
+        }
+
+        .topic ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .topic li {
+            margin-bottom: 5px;
+            color: #7f8c8d;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+            height: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0%; /* Set dynamic width later using JS */
+            border-radius: 5px;
+        }
+
+        .roadmap-footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 18px;
+        }
+        .top-div {
+    width: 100%;
+    background: #000000;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+.navigation {
+    height: 70px;
+    width: 100%;
+    background: #FFA500;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style-type: none;
+    position: fixed;
+    bottom: 0;
+}
+
+.nav-icon {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.profile-div {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFA500;
+    padding: 10px;
+}
+
+.logo {
+    font-size: 20px;
+    color: white;
+    font-weight: 1000;
+    text-align: center;
+}
+
+.profile-btn {
+    height: 50px;
+    width: 50px;
+    background: black;
+    border-radius: 50%;
+}
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-div">
+            <div class="logo">FocusFlow</div>
+            <div class="profile-btn"></div>
+        </div>
+        <h1>{{ roadmap.title }}</h1>
+        <p>{{ roadmap.description }}</p>
+        <h3>Total Estimated Hours: {{ roadmap.total_estimated_hours }}</h3>
+    
+        {% for section in roadmap.sections %}
+        <div class="section">
+            <h2>{{ section.section_name }}</h2>
+            
+            {% for topic in section.topics %}
+            <div class="topic">
+                <h4>{{ topic.topic_name }} ({{ topic.estimated_hours }} hours)</h4>
+                <ul>
+                    {% for subtopic in topic.subtopics %}
+                    <li>
+                        {{ subtopic }}
+                        <!-- Add Button -->
+                        <form action="/quiz" method="POST" style="display: inline;">
+                            <input type="hidden" id="topic" name="topic" value="{{ topic.topic_name }} {{ subtopic }}">
+                            <button type="submit">Start Quiz</button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    
+        <div class="roadmap-footer">
+            <p>Follow this roadmap and achieve your learning goals!</p>
+        </div>
+        <ul class="navigation">
+            <li class="nav-icon"><a href="/"><i class="fa-solid fa-house"></a></i></li>
+            <li class="nav-icon"><a href="/courses"><i class="fa-solid fa-book-open"></i></a></li>
+            <li class="nav-icon"><a href="#"><i class="fa-solid fa-pen"></i></a></li>
+            <li class="nav-icon"><a href="#"><i class="fa-solid fa-ellipsis"></i></a></li>
+        </ul>
+    </div>
+    
+
+</body>
+</html>
